@@ -10,33 +10,35 @@
         StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged"
         ShowInTaskbar="False"
         ResizeMode="CanMinimize"
-        Title="Smart LCD Configuration" Height="314" Width="336">
-    <Grid Margin="0,0,0,-6">
+        Title="Smart LCD Configuration" Height="310" Width="409">
+    <Grid Margin="10,10,10,21">
         <Grid.RowDefinitions>
             <RowDefinition Height="21*"/>
             <RowDefinition Height="243*"/>
             <RowDefinition Height="31*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition Width="67*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Click="SaveConfig" IsEnabled="false" Grid.Row="1" Height="21" Width="29" Grid.Column="2" Margin="225,123,0,0" RenderTransformOrigin="0.099,0.538"/>
-        <ComboBox x:Name="comboBoxCOM" HorizontalAlignment="Left" Margin="83,8,0,0" VerticalAlignment="Top" Width="120" Text="Select Com Port" Grid.Column="2" SelectionChanged="OnConfigChange" Height="22" Grid.Row="1"/>
-        <Label Content="Serial Port:" HorizontalAlignment="Left" Margin="4,6,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="66" Grid.Row="1"/>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Click="Start" Grid.Column="2" Height="20" Width="28" Grid.Row="1"/>
-        <CheckBox x:Name="checkBoxStart" Content="Start LCD on load" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" RenderTransformOrigin="0.552,-10.528" Grid.Column="2" Height="15" Width="112" Grid.Row="1"/>
-        <TextBox x:Name="backGroundImagePath" TextWrapping="NoWrap"  Grid.Column="2" HorizontalAlignment="Left" Margin="134,62,0,0" Text="TextBox" VerticalAlignment="Top" Width="120" PreviewMouseDown="backGroundImagePath_TextChanged" TextChanged="OnConfigChange" Height="18" Grid.Row="1"/>
-        <Label Content="Background Image:" HorizontalAlignment="Left" Margin="3,58,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="112" Grid.Row="1"/>
-        <Slider x:Name="Brightness" IsDirectionReversed="True" HorizontalAlignment="Left" Margin="65,169,0,0" VerticalAlignment="Top" Width="138" Grid.Column="2" Maximum="255" TickPlacement="BottomRight" TickFrequency="5" ValueChanged="brightnessValueChanged" Height="24" Grid.Row="1"/>
-        <Label Content="Bright" HorizontalAlignment="Left" Margin="224,162,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="42" Grid.Row="1"/>
+        <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Click="SaveConfig" IsEnabled="false" Grid.Row="1" Height="21" Width="29" Grid.Column="4" Margin="1,123,0,0" RenderTransformOrigin="0.099,0.538"/>
+        <ComboBox x:Name="comboBoxCOM" HorizontalAlignment="Left" Margin="81,9,0,0" VerticalAlignment="Top" Width="148" Text="Select Com Port" Grid.Column="2" SelectionChanged="OnConfigChange" Height="22" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label Content="Serial Port:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="66" Grid.Row="1"/>
+        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Click="Start" Grid.Column="4" Height="20" Width="28" Grid.Row="1"/>
+        <CheckBox x:Name="checkBoxStart" Content="Start LCD on load" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" RenderTransformOrigin="0.552,-10.528" Grid.Column="2" Height="15" Width="112" Grid.Row="1"/>
+        <TextBox x:Name="backGroundImagePath" TextWrapping="NoWrap"  Grid.Column="3" HorizontalAlignment="Center" Margin="0,62,0,0" Text="TextBox" VerticalAlignment="Top" Width="120" PreviewMouseDown="backGroundImagePath_TextChanged" TextChanged="OnConfigChange" Height="18" Grid.Row="1"/>
+        <Label Content="Background Image:" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="112" Grid.Row="1"/>
+        <Slider x:Name="Brightness" IsDirectionReversed="True" HorizontalAlignment="Left" Margin="65,169,0,0" VerticalAlignment="Top" Width="138" Grid.Column="2" Maximum="255" TickPlacement="BottomRight" TickFrequency="5" ValueChanged="brightnessValueChanged" Height="24" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label Content="Bright" HorizontalAlignment="Left" Margin="77,163,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="42" Grid.Row="1"/>
         <CheckBox x:Name="checkBoxDateTime" Content="Date Time" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Grid.Column="2" Height="15" Width="74" Grid.Row="1"/>
         <CheckBox x:Name="checkBoxLogicalCores" Content="Logical Cores" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Grid.Column="2" Height="15" Width="90" Grid.Row="1"/>
-        <CheckBox x:Name="checkBoxCPUPercent" Content="CPU%" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Grid.Column="2" Height="15" Width="52" Grid.Row="1"/>
-        <CheckBox x:Name="checkBoxDefaultImage" Grid.Column="2" Content="Default Image" HorizontalAlignment="Left" Margin="134,89,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Height="15" Width="95" Grid.Row="1"/>
-        <Label Grid.Column="2" Content="Dim" HorizontalAlignment="Left" Margin="3,162,0,0" VerticalAlignment="Top" Height="26" Width="32" Grid.Row="1"/>
-        <CheckBox x:Name="checkBoxStartMinimized" Grid.Column="2" Content="Start Minimized" HorizontalAlignment="Left" Margin="134,37,0,0" Grid.Row="1" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty"/>
+        <CheckBox x:Name="checkBoxCPUPercent" Content="CPU%" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Grid.Column="2" Height="15" Width="52" Grid.Row="1"/>
+        <CheckBox x:Name="checkBoxDefaultImage" Grid.Column="3" Content="Default Image" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Height="15" Width="94" Grid.Row="1"/>
+        <Label Grid.Column="2" Content="Dim" HorizontalAlignment="Left" Margin="28,167,0,0" VerticalAlignment="Top" Height="26" Width="32" Grid.Row="1" RenderTransformOrigin="1.334,0.825"/>
+        <CheckBox x:Name="checkBoxStartMinimized" Grid.Column="3" Content="Start Minimized" HorizontalAlignment="Left" Margin="10,37,0,0" Grid.Row="1" VerticalAlignment="Top" Unchecked="CheckBox_Dirty" Checked="CheckBox_Dirty" Height="15" Width="104"/>
 
 
     </Grid>
