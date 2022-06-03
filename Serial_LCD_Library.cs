@@ -70,7 +70,7 @@ namespace Serial_LCD_Control
         {
             if (strPathToBitmap == "DefaultImage")
             {
-                m_bmCurrentBackground = Resource1.american_flag_with_blue_sky;
+                m_bmCurrentBackground = Resource1.cosmo_public;
             }
             else
             {

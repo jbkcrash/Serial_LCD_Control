@@ -63,9 +63,9 @@ namespace Serial_LCD_Control {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap american_flag_with_blue_sky {
+        internal static System.Drawing.Bitmap cosmo_public {
             get {
-                object obj = ResourceManager.GetObject("american_flag_with_blue_sky", resourceCulture);
+                object obj = ResourceManager.GetObject("cosmo_public", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

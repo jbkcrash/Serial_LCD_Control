@@ -28,6 +28,7 @@ namespace Serial_LCD_Control
         private bool m_bLoadOnStart;
 
         private string m_strBackGround;
+        private string m_strComboBoxSerial;
 
         private bool m_bDateTime;
         private bool m_bCPUPercent;
@@ -80,10 +81,6 @@ namespace Serial_LCD_Control
             LoadConfig();
             if (m_bStartMinimized) WindowState = WindowState.Minimized;
 
-            //Load our Combobox with the available COM ports
-            string[] ports = SerialPort.GetPortNames();
-            foreach (string port in ports) comboBoxCOM.Items.Add(port);
-            
             if (m_bLoadOnStart)
             {
                 StartLCD();
@@ -127,6 +124,8 @@ namespace Serial_LCD_Control
         {
             int iLoad;
             int iLoop;
+            int iProcCount = Environment.ProcessorCount;
+
             PerformanceCounter[] pc;
             PerformanceCounter procTimeCounter;
 
@@ -141,10 +140,10 @@ namespace Serial_LCD_Control
             //}
             //if (m_bLogicalCores)
             //{
-            pc = new PerformanceCounter[12]; //Create twelve cores //TODO Set or probe number of cores.
-            for (int i = 0; i < 12; i++) pc[i] = new PerformanceCounter("Processor", "% Processor Time", i.ToString());
+            pc = new PerformanceCounter[iProcCount]; //Create twelve cores //TODO Set or probe number of cores.
+            for (int i = 0; i < iProcCount; i++) pc[i] = new PerformanceCounter("Processor", "% Processor Time", i.ToString());
             //}
-            Exception ex = serial_LCD_Library.OpenLCD("COM3");
+            Exception ex = serial_LCD_Library.OpenLCD(m_strComboBoxSerial);
             if (ex  != null) //There was an exception opening the COM port, lets exit the background thread
             {
                 System.Windows.MessageBox.Show("A handled exception just occurred: " + ex.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -268,6 +267,10 @@ namespace Serial_LCD_Control
         {
             string jsonString;
 
+            //Load our Combobox with the available COM ports
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports) comboBoxCOM.Items.Add(port);
+
             if (File.Exists(m_strConfigFileName))
             {
                 jsonString = File.ReadAllText(m_strConfigFileName, Encoding.UTF8);
@@ -282,7 +285,8 @@ namespace Serial_LCD_Control
 
             Configuration configuration = JsonSerializer.Deserialize<Configuration>(jsonString);
 
-            comboBoxCOM.Text = configuration.strCOMPort;
+            comboBoxCOM.Text = m_strComboBoxSerial = configuration.strCOMPort;
+            
             m_bLoadOnStart = (checkBoxStart.IsChecked = configuration.bStartOnLoad) ?? false;
             m_bStartMinimized = (checkBoxStartMinimized.IsChecked = configuration.bStartMinimized) ?? false;
 
