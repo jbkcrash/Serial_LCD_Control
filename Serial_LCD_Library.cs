@@ -251,10 +251,17 @@ namespace Serial_LCD_Control
             return null;
         }
 
-        public void CloseLCD()
+        public Exception CloseLCD()
         {
-            //TODO wrap in exception handler as needed.
-            m_serialPort.Close();
+            try
+            {
+                m_serialPort.Close();
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
+            return null;
         }
 
     }
