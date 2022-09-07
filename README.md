@@ -8,9 +8,9 @@ The point of this particual project is to build a Windows XAML Application that 
 
 I am using the following parts below to make a simple LCD display for my test bench computer. All parts were obtained from Amazon, there should be enough detail to duplicate my setup. See the Thingiverse link for the 3d printed parts needed to mount the screen.
 
-1ea 3.5inch Turing Smart Screen, e.g. from WOWNOVA 
-2ea 30mm M3 screws and T-Nuts
-1ea U shaped, 180 degree USB cable, e.g. from GELRHONR 
-1ea USB header to USB Cable, e.g. from Duttek
+- 1ea 3.5inch Turing Smart Screen, e.g. from WOWNOVA 
+- 2ea 30mm M3 screws and T-Nuts
+- 1ea U shaped, 180 degree USB cable, e.g. from GELRHONR 
+- 1ea USB header to USB Cable, e.g. from Duttek
 
 [Turing Smart Screen Holder](https://www.thingiverse.com/thing:5396409)
